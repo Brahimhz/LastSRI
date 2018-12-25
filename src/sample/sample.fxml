@@ -7,30 +7,30 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="TOP_CENTER" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.Controller" >
+<GridPane alignment="TOP_CENTER" hgap="10" style="-fx-background-color:rgba(207,207,255,0.35) ; " vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search">
         <font>
             <Font name="Times New Roman bold" size="50" />
 
         </font>
       <textFill>
-         <LinearGradient endX="0.28095238095238095" endY="0.8095238095238095" startX="0.26666666666666666">
+         <RadialGradient centerX="0.5444444444444444" centerY="0.6666666666666666" radius="0.5">
             <stops>
-               <Stop color="#d00ec0" />
-               <Stop color="WHITE" offset="1.0" />
+               <Stop color="#0fc627" />
+               <Stop color="#1858bf" offset="1.0" />
             </stops>
-         </LinearGradient>
+         </RadialGradient>
       </textFill>
       <GridPane.margin>
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-   <TextField GridPane.rowIndex="1" />
-   <Button accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" text="Search" textFill="#bf62b7" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <TextField style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.rowIndex="1" />
+   <Button accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" text="Search" textFill="#3d0fd3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
