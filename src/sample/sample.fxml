@@ -29,7 +29,7 @@
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-   <TextField style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.rowIndex="1" />
+   <TextField promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.rowIndex="1" />
    <Button accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" text="Search" textFill="#3d0fd3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    <columnConstraints>
       <ColumnConstraints />
