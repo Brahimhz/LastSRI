@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -13,8 +11,10 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <GridPane alignment="TOP_CENTER" hgap="10" style="-fx-background-color:rgba(207,207,255,0.35) ; " vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search">
+    <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search" GridPane.columnIndex="2">
         <font>
             <Font name="Times New Roman bold" size="50" />
 
@@ -31,13 +31,17 @@
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-   <TextField promptText="       What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.rowIndex="1" />
-   <Button accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" text="Search" textFill="#3d0fd3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-   <ImageView fitHeight="27.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-      <image>
-         <Image url="@../../image/baseline_search_black_18dp.png" />
-      </image></ImageView>
+    <TextField fx:id="searchText" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:solid ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.columnIndex="2" GridPane.rowIndex="1"  onKeyReleased="#noSpace" />
+    <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" text="Search" textFill="#3d0fd3" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#onButtonClicked" >
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Zoom16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
    <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
