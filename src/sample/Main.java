@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -14,7 +15,9 @@ public class Main extends Application {
         primaryStage.setTitle("What Do You Search ?");
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
-    }
+        primaryStage.setResizable(false);
+
+     }
 
 
     public static void main(String[] args) {
