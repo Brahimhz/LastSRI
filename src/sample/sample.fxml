@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -14,6 +13,8 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <GridPane fx:id="gridpane" alignment="TOP_CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search" GridPane.columnIndex="2">
         <font>
@@ -32,7 +33,7 @@
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-radius: 100px; -fx-border-style: solid; -fx-padding: 5px; -fx-border-width: 0 px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;"  GridPane.columnIndex="2" GridPane.rowIndex="1">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor></TextField>
@@ -46,13 +47,13 @@
           </stops>
       </LinearGradient>
       </textFill>
-      <graphic>
-         <ImageView fitHeight="42.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@/toolbarButtonGraphics/general/Zoom24.gif" />
-            </image>
-         </ImageView>
-      </graphic>
+        <graphic>
+            <ImageView fitHeight="42.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@/toolbarButtonGraphics/general/Zoom24.gif" />
+                </image>
+            </ImageView>
+        </graphic>
     </Button>
    <columnConstraints>
       <ColumnConstraints />
