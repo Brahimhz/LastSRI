@@ -45,7 +45,7 @@ public class Controller {
                 e.printStackTrace();
             }*/
 
-            searchText.clear();
+
             searchButton.setDisable(true);
             searchButton.setDefaultButton(true);
 
@@ -72,8 +72,13 @@ public class Controller {
 
 
             try {
-                Parent resultView;
-                resultView= FXMLLoader.load(getClass().getResource("Result.fxml"));
+
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("Result.fxml"));
+
+                Parent resultView=loader.load();
+
+                Result result=loader.getController();
+                result.showResult(searchText.getText());
 
                 Scene newScene = new Scene(resultView,1000,600);
 
@@ -98,6 +103,12 @@ public class Controller {
         String text = searchText.getText() ;
         Boolean disableSearchButton = text.isEmpty() || text.trim().isEmpty();
         searchButton.setDisable(disableSearchButton);
+    }
+
+    @FXML
+    public String showResult()
+    {
+        return searchText.getText();
     }
 
 }

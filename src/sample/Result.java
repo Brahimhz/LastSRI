@@ -1,12 +1,16 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
-public class Result {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Result implements Initializable {
 
     @FXML
     private TextField searchText;
@@ -15,14 +19,7 @@ public class Result {
     @FXML
     private BorderPane borderPane;
 
-    @FXML
-    public void initialize()
-    {
-        searchButton.setDisable(true);
-        searchButton.setDefaultButton(true);
-        borderPane.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW') ;");
 
-    }
 
     @FXML
     public void onButtonClicked()
@@ -40,6 +37,7 @@ public class Result {
         searchButton.setDefaultButton(true);
 
 
+
     }
 
     @FXML
@@ -48,5 +46,19 @@ public class Result {
         String text = searchText.getText() ;
         Boolean disableSearchButton = text.isEmpty() || text.trim().isEmpty();
         searchButton.setDisable(disableSearchButton);
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        searchButton.setDisable(true);
+        searchButton.setDefaultButton(true);
+        borderPane.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW') ;");
+
+    }
+
+    public void showResult(String text) {
+        searchText.setText(text);
     }
 }
