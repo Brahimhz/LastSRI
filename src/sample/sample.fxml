@@ -21,14 +21,14 @@
             <Font name="Times New Roman bold" size="50" />
 
         </font>
-      <textFill>
-         <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
-            <stops>
-               <Stop color="#1030c4" />
-               <Stop color="#0fc627" offset="1.0" />
-            </stops>
-         </LinearGradient>
-      </textFill>
+        <textFill>
+            <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
+                <stops>
+                    <Stop color="#02f833" />
+                    <Stop color="#007bf7" offset="1.0" />
+                </stops>
+            </LinearGradient>
+        </textFill>
       <GridPane.margin>
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
@@ -39,14 +39,17 @@
       </cursor></TextField>
     <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
-      <textFill>
-         <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
-          <stops>
-              <Stop color="#1030c4" />
-              <Stop color="#0fc627" offset="1.0" />
-          </stops>
-      </LinearGradient>
-      </textFill>
+        <font>
+            <Font name="System Bold Italic" size="14.0" />
+        </font>
+        <textFill>
+            <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
+                <stops>
+                    <Stop color="#02f833" />
+                    <Stop color="#007bf7" offset="1.0" />
+                </stops>
+            </LinearGradient>
+        </textFill>
         <graphic>
             <ImageView fitHeight="42.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                 <image>

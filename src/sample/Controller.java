@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.Transition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,7 +56,7 @@ public class Controller {
     private void resultTransation() {
 
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(1));
+        fadeTransition.setDuration(Duration.seconds(3));
         fadeTransition.setNode(gridpane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
@@ -80,7 +81,7 @@ public class Controller {
                 Result result=loader.getController();
                 result.showResult(searchText.getText());
 
-                Scene newScene = new Scene(resultView,1000,600);
+                Scene newScene = new Scene(resultView,1500,600);
 
                 Stage curStage =(Stage) gridpane.getScene().getWindow();
 

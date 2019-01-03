@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Result">
+<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Result">
     <top>
-        <Pane prefHeight="66.0" prefWidth="600.0">
+        <Pane fx:id="pane" prefHeight="100.0" prefWidth="750.0" visible="true">
         <TextField fx:id="searchText" layoutX="14.0" layoutY="29.0" onKeyReleased="#noSpace" prefHeight="29.0" prefWidth="450.0" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor></TextField>
         <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" layoutX="477.0" layoutY="29.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
             <textFill>
-                <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
+                <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
                     <stops>
-                        <Stop color="#1030c4" />
-                        <Stop color="#0fc627" offset="1.0" />
+                        <Stop color="#02f833" />
+                        <Stop color="#007bf7" offset="1.0" />
                     </stops>
                 </LinearGradient>
             </textFill>
@@ -40,7 +48,126 @@
         </Pane>
     </top>
    <left>
-      <ListView prefHeight="334.0" prefWidth="270.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="docList" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="true" BorderPane.alignment="CENTER" />
    </left>
+   <center>
+      <VBox prefHeight="500.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Label text="DocNo">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
+                           <stops>
+                              <Stop color="#02f833" />
+                              <Stop color="#007bf7" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill></Label>
+                  <TextField fx:id="docNo" editable="false">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Label text="Title">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                      <font>
+                          <Font name="System Bold Italic" size="14.0" />
+                      </font>
+                      <textFill>
+                          <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
+                              <stops>
+                                  <Stop color="#02f833" />
+                                  <Stop color="#007bf7" offset="1.0" />
+                              </stops>
+                          </LinearGradient>
+                      </textFill>
+                  </Label>
+                  <TextArea fx:id="title" editable="false" prefHeight="50.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></TextArea>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Abstract">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                      <font>
+                          <Font name="System Bold Italic" size="14.0" />
+                      </font>
+                      <textFill>
+                          <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
+                              <stops>
+                                  <Stop color="#02f833" />
+                                  <Stop color="#007bf7" offset="1.0" />
+                              </stops>
+                          </LinearGradient>
+                      </textFill>
+                  </Label>
+                  <TextArea fx:id="abst" editable="false" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></TextArea>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </VBox>
+   </center>
 
 </BorderPane>
