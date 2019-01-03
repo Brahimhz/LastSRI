@@ -144,15 +144,17 @@ public class Result implements Initializable {
     @FXML
     public void selectList()
     {
+
+
         Document document= (Document) docList.getSelectionModel().getSelectedItem();
 
         docNo.setText(document.getDocNo());
         title.setText(document.getTitle());
         abst.setText(document.getAbstract());
 
+        showDetails.setVisible(true);
+        new FadeInUp(showDetails).play();
 
-       // new FadeIn(showDetails).play();
-        //showDetails.setVisible(true);
 
     }
 

@@ -23,11 +23,14 @@
         <TextField fx:id="searchText" layoutX="14.0" layoutY="29.0" onKeyReleased="#noSpace" prefHeight="29.0" prefWidth="450.0" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <cursor>
                 <Cursor fx:constant="TEXT" />
-            </cursor></TextField>
+            </cursor>
+            <font>
+               <Font name="Times New Roman" size="14.0" />
+            </font></TextField>
         <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" layoutX="477.0" layoutY="29.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
             <font>
-                <Font name="System Bold Italic" size="14.0" />
+                <Font name="Times New Roman Bold Italic" size="16.0" />
             </font>
             <textFill>
                 <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
@@ -51,7 +54,7 @@
       <ListView fx:id="docList" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="true" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <VBox prefHeight="500.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="showDetails" prefHeight="500.0" prefWidth="750.0" visible="false" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </BorderPane.margin>
@@ -66,7 +69,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
                      </font>
                      <textFill>
                         <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
@@ -82,7 +85,10 @@
                      </VBox.margin>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></TextField>
+                     </padding>
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="18.0" />
+                     </font></TextField>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -101,7 +107,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                       <font>
-                          <Font name="System Bold Italic" size="14.0" />
+                          <Font name="Times New Roman Bold Italic" size="16.0" />
                       </font>
                       <textFill>
                           <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
@@ -112,13 +118,16 @@
                           </LinearGradient>
                       </textFill>
                   </Label>
-                  <TextArea fx:id="title" editable="false" prefHeight="50.0" prefWidth="200.0">
+                  <TextArea fx:id="title" editable="false" prefHeight="80.0" prefWidth="200.0" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></TextArea>
+                     </padding>
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="18.0" />
+                     </font></TextArea>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -137,7 +146,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                       <font>
-                          <Font name="System Bold Italic" size="14.0" />
+                          <Font name="Times New Roman Bold Italic" size="16.0" />
                       </font>
                       <textFill>
                           <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
@@ -148,13 +157,16 @@
                           </LinearGradient>
                       </textFill>
                   </Label>
-                  <TextArea fx:id="abst" editable="false" prefHeight="200.0" prefWidth="200.0">
+                  <TextArea fx:id="abst" editable="false" prefHeight="250.0" prefWidth="200.0" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></TextArea>
+                     </padding>
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font></TextArea>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
