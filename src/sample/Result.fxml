@@ -51,7 +51,7 @@
         </Pane>
     </top>
    <left>
-      <ListView fx:id="docList" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="true" BorderPane.alignment="CENTER" />
+      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="true" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <VBox fx:id="showDetails" prefHeight="500.0" prefWidth="750.0" visible="false" BorderPane.alignment="CENTER">

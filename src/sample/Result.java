@@ -1,14 +1,11 @@
 package sample;
 
 import animatefx.animation.*;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,7 +27,7 @@ public class Result implements Initializable {
     @FXML
     private VBox showDetails;
 
-    private List<Document> documents;
+    private List<Document> documents,searchDoc=null;
 
     @FXML
     public void onButtonClicked()
@@ -68,23 +65,11 @@ public class Result implements Initializable {
         borderPane.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW') ;");
 
 
-        pushList();
-
-
-
-     /*   try {
-
-            Thread.sleep(2000);
-        }catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-     */
-
     }
 
 
 
-    private void pushList() {
+    private boolean pushList(String text) {
 
         Document Doc1=new Document
                 ("88000001",
@@ -129,16 +114,60 @@ public class Result implements Initializable {
         documents.add(Doc5);
         documents.add(Doc6);
 
-        docList.getItems().setAll(documents);
+        searchDoc=new ArrayList<>();
+
+        for(int i=0;i<5;i++)
+            {
+               if(searchWord(documents.get(i),text)==true)
+               {
+                   System.out.println("\n TRUE \n");
+                   searchDoc.add(documents.get(i)) ;
+               }
+               else { return false;}
+
+            }
+
+         docList.getItems().setAll(searchDoc);
 
 
+        return true;
+    }
 
+    private boolean searchWord(Document document, String text) {
 
+        String[] arrT=document.getTitle().split(" ");
+        String[] arrA=document.getAbstract().split(" ");
+        String[] arrTxt=text.split(" ");
+
+        for (int i=0;i<(arrTxt.length);i++)
+        {
+
+                for(int j=0;j<(arrT.length);j++)
+                {
+                    if(arrT[j].equals(arrTxt[i]))
+                    {
+                            return true;
+                    }
+                }
+                for(int k=0;k<(arrA.length);k++)
+                {
+                    if(arrA[k].equals(arrTxt[i]))
+                    {
+                        return true;
+                    }
+                }
+        }
+        return false;
     }
 
     public void showResult(String text) {
+
         searchText.setText(text);
         docList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        if(pushList(text))
+        {docList.setVisible(true);}
+        else{docList.setVisible(false);}
     }
 
     @FXML
