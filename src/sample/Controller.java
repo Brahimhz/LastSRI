@@ -1,25 +1,22 @@
 package sample;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.Transition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.util.stream.IntStream;
 
 public class Controller {
+
 
     @FXML
     private TextField searchText;
@@ -27,13 +24,19 @@ public class Controller {
     private Button searchButton ;
     @FXML
     private GridPane gridpane;
+    @FXML
+    private RadioButton word;
+    @FXML
+    private RadioButton docNo;
+
 
     @FXML
     public void initialize()
     {
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
-        gridpane.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW') ;");
+        gridpane.setStyle("-fx-background-image: url('file:image/back.jpg') ;");
+        radioCheck();
 
     }
 
@@ -55,10 +58,10 @@ public class Controller {
             resultTransation();
         }
 
-    private void resultTransation() {
+    public void resultTransation() {
 
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(3));
+        fadeTransition.setDuration(Duration.seconds(2));
         fadeTransition.setNode(gridpane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
@@ -70,7 +73,7 @@ public class Controller {
         fadeTransition.play();
     }
 
-    private void loadResult()
+    public void loadResult()
     {
 
 
@@ -82,7 +85,7 @@ public class Controller {
                 Parent resultView=loader.load();
 
                 Result result=loader.getController();
-                result.showResult(searchText.getText());
+                result.showResult(searchText.getText(),radioCheck());
 
 
                 Scene newScene = new Scene(resultView,1500,600);
@@ -110,10 +113,12 @@ public class Controller {
         searchButton.setDisable(disableSearchButton);
     }
 
-    @FXML
-    public String showResult()
+    public int radioCheck()
     {
-        return searchText.getText();
+            if(docNo.isSelected())
+            {return 2;}
+            else
+            {return 1;}
     }
+ }
 
-}

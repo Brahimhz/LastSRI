@@ -6,75 +6,63 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <GridPane fx:id="gridpane" alignment="TOP_CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search" GridPane.columnIndex="2">
+
+        <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search" textFill="#ff351f" GridPane.columnIndex="2">
         <font>
             <Font name="Times New Roman Bold Italic" size="50.0" />
 
         </font>
-        <textFill>
-            <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
-                <stops>
-                    <Stop color="#02f833" />
-                    <Stop color="#007bf7" offset="1.0" />
-                </stops>
-            </LinearGradient>
-        </textFill>
       <GridPane.margin>
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-style:double ; -fx-border-color:rgba(207,207,255,0.35 ) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:rgb(0,0,0) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
       <font>
          <Font name="Times New Roman" size="14.0" />
       </font></TextField>
-    <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1">
+    <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-radius: 50% ; -fx-border-radius: 50%;" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
-        <font>
-            <Font name="Times New Roman Bold Italic" size="16.0" />
-        </font>
-        <textFill>
-            <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
-                <stops>
-                    <Stop color="#02f833" />
-                    <Stop color="#007bf7" offset="1.0" />
-                </stops>
-            </LinearGradient>
-        </textFill>
         <graphic>
             <ImageView fitHeight="42.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@/toolbarButtonGraphics/general/Zoom24.gif" />
+                    <Image url="file:image/baseline_search_black_18dp.png" />
                 </image>
             </ImageView>
         </graphic>
     </Button>
-   <RadioButton mnemonicParsing="false" selected="true" text="By Word" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+       <fx:define>
+           <ToggleGroup fx:id="searchType" />
+       </fx:define>
+       <children>
+         <RadioButton fx:id="word" mnemonicParsing="false"  prefHeight="19.0" prefWidth="87.0" selected="true" text="By Word" textFill="#ff351e" toggleGroup="$searchType" onAction="#radioCheck">
+            <font>
+               <Font name="Times New Roman Bold" size="14.0" />
+            </font>
+         </RadioButton>
+          <RadioButton fx:id="docNo" lineSpacing="5.0" mnemonicParsing="false"  prefHeight="19.0" prefWidth="96.0" text="By DocNo" textFill="#ff351e" toggleGroup="$searchType" onAction="#radioCheck">
+              <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+              </font>
+          </RadioButton>
+      </children>
+   </HBox>
 
-       <textFill>
-           <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
-               <stops>
-                   <Stop color="#02f833" />
-                   <Stop color="#007bf7" offset="1.0" />
-               </stops>
-           </LinearGradient>
-       </textFill>
-      <font>
-         <Font name="Times New Roman Bold" size="14.0" />
-      </font>
-   </RadioButton>
+
+
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />

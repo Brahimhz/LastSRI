@@ -2,7 +2,9 @@ package sample;
 
 import animatefx.animation.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -44,8 +46,6 @@ public class Result implements Initializable {
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
 
-
-
     }
 
     @FXML
@@ -62,14 +62,14 @@ public class Result implements Initializable {
 
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
-        borderPane.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW') ;");
+        borderPane.setStyle("-fx-background-image: url('file:image/back.jpg') ;");
 
 
     }
 
 
 
-    private boolean pushList(String text) {
+    private boolean pushList(String text, int ii) {
 
         Document Doc1=new Document
                 ("88000001",
@@ -118,12 +118,12 @@ public class Result implements Initializable {
 
         for(int i=0;i<5;i++)
             {
-               if(searchWord(documents.get(i),text)==true)
+               if(searchWord(documents.get(i),text,ii)==true)
                {
                    System.out.println("\n TRUE \n");
-                   searchDoc.add(documents.get(i)) ;
+                   searchDoc.add(documents.get(i));
                }
-               else { return false;}
+
 
             }
 
@@ -133,12 +133,18 @@ public class Result implements Initializable {
         return true;
     }
 
-    private boolean searchWord(Document document, String text) {
+    private boolean searchWord(Document document, String text, int ii) {
 
         String[] arrT=document.getTitle().split(" ");
         String[] arrA=document.getAbstract().split(" ");
         String[] arrTxt=text.split(" ");
-
+        String arrN=document.getDocNo().trim();
+        if(ii==2)
+        {
+            if(arrN.equals(text))
+            return true;
+        }
+        else{
         for (int i=0;i<(arrTxt.length);i++)
         {
 
@@ -157,15 +163,17 @@ public class Result implements Initializable {
                     }
                 }
         }
+        }
+
         return false;
     }
 
-    public void showResult(String text) {
+    public void showResult(String text, int i) {
 
         searchText.setText(text);
         docList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        if(pushList(text))
+        if(pushList(text,i))
         {docList.setVisible(true);}
         else{docList.setVisible(false);}
     }
