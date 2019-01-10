@@ -8,10 +8,12 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -28,7 +30,7 @@
             <font>
                <Font name="Times New Roman" size="14.0" />
             </font></TextField>
-        <Button fx:id="searchButton" style="-fx-background-radius: 50% ; -fx-border-radius: 50%;" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" layoutX="477.0" layoutY="29.0" mnemonicParsing="false" onAction="#onButtonClicked" GridPane.columnIndex="3" GridPane.rowIndex="1">
+        <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" layoutX="477.0" layoutY="29.0" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-radius: 50% ; -fx-border-radius: 50%;" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
 
             <textFill>
@@ -48,24 +50,51 @@
             </graphic>
         </Button>
 
-            <RadioButton layoutX="6.0" layoutY="67.0" mnemonicParsing="false" selected="true" text="By Word" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <HBox layoutY="64.0" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <fx:define>
+                    <ToggleGroup fx:id="searchType" />
+                </fx:define>
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <children>
+                    <RadioButton fx:id="word" mnemonicParsing="false" prefHeight="19.0" prefWidth="87.0" selected="true" text="By Word" wrapText="true">
+                        <font>
+                            <Font name="Times New Roman Bold" size="14.0" />
+                        </font>
+                        <textFill>
+                            <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
+                                <stops>
+                                    <Stop color="#1030c4" />
+                                    <Stop color="#0fc627" offset="1.0" />
+                                </stops>
+                            </LinearGradient>
+                        </textFill>
+                  <toggleGroup>
+                     <ToggleGroup fx:id="searchType" />
+                  </toggleGroup>
 
-                <textFill>
-                    <LinearGradient endX="0.5619047619047619" endY="0.9047619047619048" startX="0.5523809523809524" startY="0.4666666666666667">
-                        <stops>
-                            <Stop color="#02f833" />
-                            <Stop color="#007bf7" offset="1.0" />
-                        </stops>
-                    </LinearGradient>
-                </textFill>
-                <font>
-                    <Font name="Times New Roman Bold" size="14.0" />
-                </font>
-            </RadioButton>
+                    </RadioButton>
+                    <RadioButton lineSpacing="5.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="96.0" text="By DocNo" toggleGroup="$searchType" wrapText="true">
+                        <font>
+                            <Font name="Times New Roman Bold" size="14.0" />
+                        </font>
+                        <textFill>
+                            <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
+                                <stops>
+                                    <Stop color="#1030c4" />
+                                    <Stop color="#0fc627" offset="1.0" />
+                                </stops>
+                            </LinearGradient>
+                        </textFill>
+
+                    </RadioButton>
+                </children>
+            </HBox>
         </Pane>
     </top>
    <left>
-      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="true" BorderPane.alignment="CENTER" />
+      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" visible="false" BorderPane.alignment="CENTER" />
    </left>
    <center>
       <VBox fx:id="showDetails" prefHeight="500.0" prefWidth="750.0" visible="false" BorderPane.alignment="CENTER">

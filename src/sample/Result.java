@@ -62,7 +62,9 @@ public class Result implements Initializable {
 
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
-        borderPane.setStyle("-fx-background-image: url('file:image/back.jpg') ;");
+        borderPane.setStyle("-fx-background-image: url('file:image/back2.png') ;");
+        docList.setStyle("-fx-background-image: url('file:image/back2.png') ;");
+
 
 
     }
@@ -127,6 +129,11 @@ public class Result implements Initializable {
 
             }
 
+            if (searchDoc!=null)
+            {
+                docList.setVisible(true);
+            }
+
          docList.getItems().setAll(searchDoc);
 
 
@@ -172,10 +179,7 @@ public class Result implements Initializable {
 
         searchText.setText(text);
         docList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
-        if(pushList(text,i))
-        {docList.setVisible(true);}
-        else{docList.setVisible(false);}
+        pushList(text,i);
     }
 
     @FXML

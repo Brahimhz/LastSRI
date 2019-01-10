@@ -35,7 +35,7 @@ public class Controller {
     {
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
-        gridpane.setStyle("-fx-background-image: url('file:image/back.jpg') ;");
+        gridpane.setStyle("-fx-background-image: url('file:image/back2.png') ;");
         radioCheck();
 
     }
