@@ -1,19 +1,22 @@
 package sample;
 
 import javafx.animation.FadeTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.textfield.TextFields;
+
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -29,10 +32,13 @@ public class Controller {
     @FXML
     private RadioButton docNo;
 
+    private Result result;
+
 
     @FXML
     public void initialize()
     {
+
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
         gridpane.setStyle("-fx-background-image: url('file:image/back2.png') ;");
@@ -96,7 +102,9 @@ public class Controller {
 
                 curStage.setTitle("Your Result");
 
-
+                Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+                curStage.setX((primScreenBounds.getWidth() - curStage.getWidth()) / 2);
+                curStage.setY((primScreenBounds.getHeight() - curStage.getHeight()) / 2);
 
 
             } catch (IOException e) {
