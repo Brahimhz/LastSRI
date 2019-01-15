@@ -36,14 +36,14 @@
          <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
       </GridPane.margin>
     </Label>
-    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:rgb(0,0,0) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <TextField fx:id="searchText" onKeyReleased="#noSpace" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);" GridPane.columnIndex="2" GridPane.rowIndex="1">
       <cursor>
          <Cursor fx:constant="TEXT" />
       </cursor>
       <font>
          <Font name="Times New Roman" size="14.0" />
       </font></TextField>
-    <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-radius: 50% ; -fx-border-radius: 50%;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+    <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-radius: 50% ; -fx-border-radius: 50%; -fx-border-color:linear-gradient(#007bf7,#02f833);" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
         <graphic>
             <ImageView fitHeight="42.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">

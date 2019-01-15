@@ -23,7 +23,7 @@
 <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Result">
     <top>
         <Pane fx:id="pane" prefHeight="100.0" prefWidth="750.0" visible="true">
-        <TextField fx:id="searchText" layoutX="14.0" layoutY="30.0" onKeyReleased="#noSpace" prefHeight="29.0" prefWidth="450.0" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:rgb(0,0,0) ;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <TextField fx:id="searchText" layoutX="14.0" layoutY="30.0" onKeyReleased="#noSpace" prefHeight="29.0" prefWidth="450.0" promptText="What Do You Search ?" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <cursor>
                 <Cursor fx:constant="TEXT" />
             </cursor>
@@ -91,7 +91,7 @@
         </Pane>
     </top>
    <left>
-      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:rgb(0,0,0) ;" visible="false" BorderPane.alignment="CENTER">
+      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);" visible="false" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
@@ -125,7 +125,7 @@
                            </stops>
                         </LinearGradient>
                      </textFill></Label>
-                  <TextField fx:id="docNo" editable="false">
+                  <TextField fx:id="docNo" editable="false" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -164,7 +164,7 @@
                           </LinearGradient>
                       </textFill>
                   </Label>
-                  <TextArea fx:id="title" editable="false" prefHeight="80.0" prefWidth="200.0" wrapText="true">
+                  <TextArea fx:id="title" editable="false" prefHeight="80.0" prefWidth="200.0" wrapText="true" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -203,7 +203,7 @@
                           </LinearGradient>
                       </textFill>
                   </Label>
-                  <TextArea fx:id="abst" editable="false" prefHeight="250.0" prefWidth="200.0" wrapText="true">
+                  <TextArea fx:id="abst" editable="false" prefHeight="250.0" prefWidth="200.0" wrapText="true" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>

@@ -12,11 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.controlsfx.control.textfield.TextFields;
-
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Controller {
 
