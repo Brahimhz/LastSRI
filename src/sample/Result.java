@@ -38,6 +38,7 @@ public class Result implements Initializable {
 
         showResult(searchText.getText(),radioCheck());
 
+        showDetails.setVisible(false);
 
         searchButton.setDisable(true);
         searchButton.setDefaultButton(true);
