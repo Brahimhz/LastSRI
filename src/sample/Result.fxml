@@ -50,48 +50,70 @@
             </graphic>
         </Button>
 
-            <HBox layoutY="64.0" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <HBox layoutY="64.0" prefHeight="36.0" prefWidth="1000.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                 <padding>
                     <Insets bottom="10" left="10" right="10" top="10" />
                 </padding>
                 <children>
-                    <RadioButton fx:id="word" mnemonicParsing="false" onAction="#radioCheck" prefHeight="19.0" prefWidth="87.0" selected="true" text="By Word" wrapText="true">
+                    <RadioButton fx:id="vector" mnemonicParsing="false" prefHeight="19.0" prefWidth="200.0" selected="true" text="by Vectorial Search"
+                                 toggleGroup="$searchType" onAction="#radioCheck"  wrapText="true">
                         <font>
                             <Font name="Times New Roman Bold" size="14.0" />
                         </font>
                         <textFill>
                             <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
                                 <stops>
-                                    <Stop color="#1030c4" />
+                                    <Stop color="white" />
                                     <Stop color="#0fc627" offset="1.0" />
                                 </stops>
                             </LinearGradient>
                         </textFill>
+                        <padding>
+                            <Insets bottom="5" right="5" left="5" top="5"></Insets>
+                        </padding>
+                    </RadioButton>
+                    <RadioButton fx:id="word" mnemonicParsing="false" onAction="#radioCheck" prefHeight="19.0" prefWidth="100.0"  text="By Word" wrapText="true">
+                        <font>
+                            <Font name="Times New Roman Bold" size="14.0" />
+                        </font>
+                        <textFill>
+                            <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
+                                <stops>
+                                    <Stop color="white" />
+                                    <Stop color="#0fc627" offset="1.0" />
+                                </stops>
+                            </LinearGradient>
+                        </textFill>
+                        <padding>
+                            <Insets bottom="5" right="5" left="5" top="5"></Insets>
+                        </padding>
                   <toggleGroup>
                      <ToggleGroup fx:id="searchType" />
                   </toggleGroup>
 
                     </RadioButton>
-                    <RadioButton fx:id="RdocNo" lineSpacing="5.0" mnemonicParsing="false" onAction="#radioCheck" prefHeight="19.0" prefWidth="96.0" text="By DocNo" toggleGroup="$searchType" wrapText="true">
+                    <RadioButton fx:id="RdocNo" lineSpacing="5.0" mnemonicParsing="false" onAction="#radioCheck" prefHeight="19.0" prefWidth="200.0" text="By DocNo" toggleGroup="$searchType" wrapText="true">
                         <font>
                             <Font name="Times New Roman Bold" size="14.0" />
                         </font>
                         <textFill>
                             <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
                                 <stops>
-                                    <Stop color="#1030c4" />
+                                    <Stop color="white" />
                                     <Stop color="#0fc627" offset="1.0" />
                                 </stops>
                             </LinearGradient>
                         </textFill>
-
+                        <padding>
+                            <Insets bottom="5" right="5" left="5" top="5"></Insets>
+                        </padding>
                     </RadioButton>
                 </children>
             </HBox>
         </Pane>
     </top>
    <left>
-      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="750.0" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);" visible="false" BorderPane.alignment="CENTER">
+      <ListView fx:id="docList" fixedCellSize="50.0" onMouseClicked="#selectList" prefHeight="500.0" prefWidth="1000.0" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);" visible="false" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
@@ -182,7 +204,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="900.0" prefWidth="100.0">
                <children>
                   <Label text="Abstract">
                      <VBox.margin>
@@ -203,7 +225,7 @@
                           </LinearGradient>
                       </textFill>
                   </Label>
-                  <TextArea fx:id="abst" editable="false" prefHeight="250.0" prefWidth="200.0" wrapText="true" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);">
+                  <TextArea fx:id="abst" editable="false" prefHeight="700.0" prefWidth="200.0" wrapText="true" style="-fx-border-width:2; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-style:solid ; -fx-border-color:linear-gradient(#007bf7,#02f833);">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -211,7 +233,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font name="Times New Roman" size="14.0" />
+                        <Font name="Times New Roman" size="24.0" />
                      </font></TextArea>
                </children>
                <VBox.margin>

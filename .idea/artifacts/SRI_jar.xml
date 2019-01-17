@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SRI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SRI_jar</output-path>
+    <root id="archive" name="SRI.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="SRI" />
+      <element id="extracted-dir" path="B:/Download/Compressed/controlsfx-8.0.1.jar/controlsfx-8.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/github/typhon0/AnimateFX/1.2.0/AnimateFX-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jlfgr-1_0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/fontawesomefx-8.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/controlsfx-8.40.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/controlsfx-8.0.1-samples.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/controlsfx-8.0.1-samples.jar" />
+      <element id="file-copy" path="B:/Download/Compressed/controlsfx-8.0.1.jar/controlsfx-8.0.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/controlsfx-8.40.11.jar" />
+      <element id="library" level="project" name="fontawesomefx-8.9" />
+      <element id="library" level="project" name="io.github.typhon0:AnimateFX:1.2.0" />
+      <element id="file-copy" path="$PROJECT_DIR$/jlfgr-1_0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/image/back2.png" />
+      <element id="file-copy" path="$PROJECT_DIR$/image/baseline_search_black_18dp.png" />
+    </root>
+  </artifact>
+</component>

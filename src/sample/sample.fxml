@@ -17,11 +17,12 @@
 
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.layout.VBox?>
 <GridPane fx:id="gridpane" alignment="TOP_CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
-        <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="57.0" prefWidth="148.0" text="Search" GridPane.columnIndex="2">
+        <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="200.0" prefWidth="300.0" text="Search" GridPane.columnIndex="2">
         <font>
-            <Font name="Times New Roman Bold Italic" size="50.0" />
+            <Font name="Times New Roman Bold Italic" size="100.0" />
 
         </font>
             <textFill>
@@ -41,7 +42,7 @@
          <Cursor fx:constant="TEXT" />
       </cursor>
       <font>
-         <Font name="Times New Roman" size="14.0" />
+         <Font name="Times New Roman" size="20.0" />
       </font></TextField>
     <Button fx:id="searchButton" accessibleHelp="Search" accessibleRoleDescription="Search" accessibleText="Search" mnemonicParsing="false" onAction="#onButtonClicked" style="-fx-background-radius: 50% ; -fx-border-radius: 50%; -fx-border-color:linear-gradient(#007bf7,#02f833);" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
@@ -53,7 +54,7 @@
             </ImageView>
         </graphic>
     </Button>
-   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+   <VBox prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
        <fx:define>
            <ToggleGroup fx:id="searchType" />
        </fx:define>
@@ -61,37 +62,59 @@
            <Insets bottom="10" right="10" left="10" top="10"></Insets>
        </padding>
        <children>
-         <RadioButton fx:id="word" mnemonicParsing="false" prefHeight="19.0" prefWidth="87.0" selected="true" text="By Word"
+           <RadioButton fx:id="vector" mnemonicParsing="false" prefHeight="19.0" prefWidth="300.0" selected="true" text="by Vectorial Search"
+                        toggleGroup="$searchType" onAction="#radioCheck"  wrapText="true">
+               <font>
+                   <Font name="Times New Roman Bold" size="20.0" />
+               </font>
+               <textFill>
+                   <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
+                       <stops>
+                           <Stop color="white" />
+                           <Stop color="#0fc627" offset="1.0" />
+                       </stops>
+                   </LinearGradient>
+               </textFill>
+               <padding>
+                   <Insets bottom="5" right="5" left="5" top="5"></Insets>
+               </padding>
+           </RadioButton>
+         <RadioButton fx:id="word" mnemonicParsing="false" prefHeight="19.0" prefWidth="300.0" selected="false" text="By Word"
                       toggleGroup="$searchType" onAction="#radioCheck"  wrapText="true">
             <font>
-               <Font name="Times New Roman Bold" size="14.0" />
+               <Font name="Times New Roman Bold" size="20.0" />
             </font>
              <textFill>
                  <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
                      <stops>
-                         <Stop color="#1030c4" />
+                         <Stop color="white" />
                          <Stop color="#0fc627" offset="1.0" />
                      </stops>
                  </LinearGradient>
              </textFill>
-            
+             <padding>
+                 <Insets bottom="5" right="5" left="5" top="5"></Insets>
+             </padding>
          </RadioButton>
-          <RadioButton fx:id="docNo" lineSpacing="5.0" mnemonicParsing="false"  prefHeight="19.0" prefWidth="96.0" text="By DocNo" toggleGroup="$searchType" onAction="#radioCheck" wrapText="true">
+
+          <RadioButton fx:id="docNo" lineSpacing="5.0" mnemonicParsing="false"  prefHeight="19.0" prefWidth="300.0" text="By DocNo" toggleGroup="$searchType" onAction="#radioCheck" wrapText="true">
               <font>
-                  <Font name="Times New Roman Bold" size="14.0" />
+                  <Font name="Times New Roman Bold" size="20.0" />
               </font>
               <textFill>
                   <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
                       <stops>
-                          <Stop color="#1030c4" />
+                          <Stop color="white" />
                           <Stop color="#0fc627" offset="1.0" />
                       </stops>
                   </LinearGradient>
               </textFill>
-
+              <padding>
+                  <Insets bottom="5" right="5" left="5" top="5"></Insets>
+              </padding>
           </RadioButton>
       </children>
-   </HBox>
+   </VBox>
 
 
 

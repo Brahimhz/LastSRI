@@ -90,7 +90,7 @@ public class Controller {
                 result.showResult(searchText.getText(),radioCheck());
 
 
-                Scene newScene = new Scene(resultView,1500,600);
+                Scene newScene = new Scene(resultView,2000,1000);
 
                 Stage curStage =(Stage) gridpane.getScene().getWindow();
 

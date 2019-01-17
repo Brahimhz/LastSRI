@@ -208,8 +208,6 @@ public class Result implements Initializable {
 
         showDetails.setVisible(true);
         new FadeInUp(showDetails).play();
-
-
     }
 
 
