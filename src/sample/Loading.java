@@ -29,6 +29,7 @@ public class Loading {
     public void transfert(String text, int radioCheck) throws FileNotFoundException, InterruptedException {
 
                 resultTransation(text,radioCheck);
+                 search = new Search(text);
 
 
     }
@@ -58,7 +59,6 @@ public class Loading {
             Parent resultView=loader.load();
 
             long startTime = System.currentTimeMillis();
-            search = new Search(text);
 
             Result result=loader.getController();
             result.showResult(text,radioCheck,search.copyTitles());
