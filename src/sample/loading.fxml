@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderLoading" prefHeight="1000.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Loading">
+   <center>
+     <VBox alignment="CENTER">
+
+        <ImageView focusTraversable="true">
+            <image>
+               <Image url="file:image/Spinner-6.8s-200px.gif" />
+            </image></ImageView>
+
+        <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" text="Loading" BorderPane.alignment="CENTER">
+           <font>
+              <Font size="20.0" />
+           </font>
+        </Label>
+     </VBox>
+
+   </center>
+</BorderPane>
