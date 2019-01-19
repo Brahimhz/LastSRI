@@ -79,23 +79,6 @@
                    <Insets bottom="5" right="5" left="5" top="5"></Insets>
                </padding>
            </RadioButton>
-         <RadioButton fx:id="word" mnemonicParsing="false" prefHeight="19.0" prefWidth="300.0" selected="false" text="By Word"
-                      toggleGroup="$searchType" onAction="#radioCheck"  wrapText="true">
-            <font>
-               <Font name="Times New Roman Bold" size="20.0" />
-            </font>
-             <textFill>
-                 <LinearGradient endX="0.4380952380952381" endY="0.22380952380952382" startX="0.45238095238095233" startY="1.0">
-                     <stops>
-                         <Stop color="white" />
-                         <Stop color="#0fc627" offset="1.0" />
-                     </stops>
-                 </LinearGradient>
-             </textFill>
-             <padding>
-                 <Insets bottom="5" right="5" left="5" top="5"></Insets>
-             </padding>
-         </RadioButton>
 
           <RadioButton fx:id="docNo" lineSpacing="5.0" mnemonicParsing="false"  prefHeight="19.0" prefWidth="300.0" text="By DocNo" toggleGroup="$searchType" onAction="#radioCheck" wrapText="true">
               <font>

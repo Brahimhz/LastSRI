@@ -1,15 +1,32 @@
 package sample;
 
-import animatefx.animation.*;
+import BackEnd.MongodbConnection;
+import animatefx.animation.FadeInUp;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
+import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.mongodb.client.model.Projections.*;
 
 public class Result implements Initializable {
 
@@ -31,12 +48,15 @@ public class Result implements Initializable {
 
     private List<Document> documents,searchDoc=null;
 
+    private Search search;
+
+    private Loading loading;
+
     @FXML
-    public void onButtonClicked()
-    {
+    public void onButtonClicked() throws FileNotFoundException {
         System.out.println("Result : " + searchText.getText() );
 
-        showResult(searchText.getText(),radioCheck());
+    loadResult();
 
         showDetails.setVisible(false);
 
@@ -44,7 +64,56 @@ public class Result implements Initializable {
         searchButton.setDefaultButton(true);
 
     }
+    public void resultTransation() {
 
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.seconds(1));
+        fadeTransition.setNode(borderPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+
+        fadeTransition.setOnFinished( (ActionEvent event ) -> {
+            loadResult();
+        });
+
+        fadeTransition.play();
+    }
+
+    public void loadResult()
+    {
+
+
+        try {
+
+
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("loading.fxml"));
+
+            Parent resultView=loader.load();
+
+            loading=loader.getController();
+            loading.transfert(searchText.getText(),radioCheck());
+
+
+            Scene newScene = new Scene(resultView,1900,1000);
+
+            Stage curStage =(Stage) borderPane.getScene().getWindow();
+
+            curStage.setScene(newScene);
+
+            curStage.setTitle("Please Wait");
+
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            curStage.setX((primScreenBounds.getWidth() - curStage.getWidth()) / 2);
+            curStage.setY((primScreenBounds.getHeight() - curStage.getHeight()) / 2);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
     public int radioCheck()
     {
         if(RdocNo.isSelected())
@@ -75,13 +144,13 @@ public class Result implements Initializable {
     }
 
 
-    private boolean pushList(String text, int ii, ArrayList<Document> documents) {
+    private boolean pushList(String text, int ii, ArrayList<String> scores) {
 
         searchDoc=new ArrayList<>();
 
         System.out.println("\n"+ii+"\n");
 
-        for(int i=0;i<5;i++)
+      /*  for(int i=0;i<5;i++)
             {
                if(searchWord(this.documents.get(i),text,ii)==true)
                {
@@ -95,10 +164,10 @@ public class Result implements Initializable {
             if (searchDoc!=null)
             {
                 docList.setVisible(true);
-            }
+            }*/
 
-         docList.getItems().setAll(searchDoc);
-
+         docList.getItems().setAll(scores);
+        docList.setVisible(true);
 
         return true;
     }
@@ -138,16 +207,17 @@ public class Result implements Initializable {
         return false;
     }
 
-    public void showResult(String text, int i) {
+    public void showResult(String text, int i, ArrayList<String> strings) throws FileNotFoundException {
 
         searchText.setText(text);
         docList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        pushList(text,i,pushDocument());
+        search = new Search(text);
+        pushList(text,i,search.copyTitles());
 
     }
 
-    public  ArrayList<Document> pushDocument() {
+   public  ArrayList<Document> pushDocument() {
         Document Doc1=new Document
                 ("88000001",
                         "The binding of acetaldehyde to the active site of ribonuclease: alterations in catalytic activity and effects of phosphate",
@@ -199,14 +269,22 @@ public class Result implements Initializable {
     public void selectList()
     {
 
+        int docIndex = (int) docList.getSelectionModel().getSelectedIndices().get(0);
+        String StrDocNum = Integer.toString(search.getDocScores().get(docIndex).id_doc);
 
-        Document document= (Document) docList.getSelectionModel().getSelectedItem();
+        docNo.setText(StrDocNum);
+        title.setText(search.getDocScores().get(docIndex).title_doc);
 
-        docNo.setText(document.getDocNo());
-        title.setText(document.getTitle());
-        abst.setText(document.getAbstract());
+        MongodbConnection mdbc = new MongodbConnection("DocumentsCollection");
+
+        FindIterable<org.bson.Document> fid =  mdbc.collection.find(Filters.eq("DocumentNumber", StrDocNum)).projection(fields(include("DocumentAbstract"), excludeId()));
+        for (org.bson.Document d : fid)
+            abst.setText((String) d.get("DocumentAbstract"));
+
+        mdbc.mongoClient.close();
 
         showDetails.setVisible(true);
+
         new FadeInUp(showDetails).play();
     }
 

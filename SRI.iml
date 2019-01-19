@@ -38,6 +38,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.01" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -47,6 +48,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.01" level="project" />
+    <orderEntry type="library" exported="" name="mongo-java-driver-3.0.0" level="project" />
+    <orderEntry type="library" name="mongo-java-driver-3.0.01" level="project" />
   </component>
 </module>

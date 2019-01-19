@@ -12,6 +12,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Controller {
@@ -28,7 +30,9 @@ public class Controller {
     @FXML
     private RadioButton docNo;
 
-    private Result result;
+    private Loading loading;
+
+   // private Search search;
 
 
     @FXML
@@ -43,9 +47,8 @@ public class Controller {
     }
 
     @FXML
-    public void onButtonClicked()
-        {
-            System.out.println("Result : " + searchText.getText() );
+    public void onButtonClicked() throws FileNotFoundException {
+        System.out.println("Result : " + searchText.getText());
 
            /* try {
                 Thread.sleep(1000);
@@ -54,12 +57,14 @@ public class Controller {
             }*/
 
 
-            searchButton.setDisable(true);
-            searchButton.setDefaultButton(true);
+        searchButton.setDisable(true);
+        searchButton.setDefaultButton(true);
 
-            resultTransation();
-        }
+        resultTransation();
 
+        //search = new Search(searchText.getText());
+
+    }
     public void resultTransation() {
 
         FadeTransition fadeTransition = new FadeTransition();
@@ -82,21 +87,21 @@ public class Controller {
             try {
 
 
-                FXMLLoader loader=new FXMLLoader(getClass().getResource("Result.fxml"));
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("loading.fxml"));
 
                 Parent resultView=loader.load();
 
-                Result result=loader.getController();
-                result.showResult(searchText.getText(),radioCheck());
+                loading=loader.getController();
+                loading.transfert(searchText.getText(),radioCheck());
 
 
-                Scene newScene = new Scene(resultView,2000,1000);
+                Scene newScene = new Scene(resultView,1900,1000);
 
                 Stage curStage =(Stage) gridpane.getScene().getWindow();
 
                 curStage.setScene(newScene);
 
-                curStage.setTitle("Your Result");
+                curStage.setTitle("Please Wait");
 
                 Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
                 curStage.setX((primScreenBounds.getWidth() - curStage.getWidth()) / 2);
@@ -104,6 +109,8 @@ public class Controller {
 
 
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
